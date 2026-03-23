@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encontro com Deus | Quadrangular Pilarzinho</title>
+  <meta name="description" content="Um convite para viver um verdadeiro encontro com Deus. Palavra de encorajamento, esperança, recomeço e inscrição para o Encontro com Deus da Quadrangular Pilarzinho." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070707;
+      --bg-soft: #101010;
+      --card: rgba(255,255,255,0.06);
+      --card-border: rgba(255,255,255,0.12);
+      --text: #f7f7f7;
+      --muted: #cfcfcf;
+      --blue: #14c5f5;
+      --red: #ef4444;
+      --yellow: #facc15;
+      --purple: #8b5cf6;
+      --white: #ffffff;
+      --radius: 22px;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(20,197,245,0.18), transparent 24%),
+        radial-gradient(circle at 10% 30%, rgba(239,68,68,0.14), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(139,92,246,0.14), transparent 28%),
+        #070707;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .wrap { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(14px);
+      background: rgba(7,7,7,0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      padding: 4px;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 0.98rem;
+      line-height: 1.15;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:active { transform: translateY(1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), #38bdf8 55%, #60a5fa);
+      color: #01131b;
+      box-shadow: 0 12px 28px rgba(20,197,245,0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      border-color: rgba(255,255,255,0.14);
+    }
+
+    .hero {
+      padding: 28px 0 26px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .glass,
+    .card,
+    .photo-card,
+    .form-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card {
+      padding: 28px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 520px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.62)),
+        url('assets/hero.jpeg') center/cover no-repeat;
+    }
+
+    .hero-logo-banner {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: min(100%, 420px);
+      margin-bottom: 18px;
+      padding: 12px 16px;
+      border-radius: 24px;
+      background: rgba(0,0,0,0.58);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.30);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-logo-banner img {
+      width: 100%;
+      max-width: 360px;
+      object-fit: contain;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      margin-bottom: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(7,7,7,0.55);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      line-height: 0.96;
+      margin: 0 0 14px;
+      max-width: 12ch;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      color: #f5f5f5;
+      max-width: 40ch;
+      margin: 0 0 24px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .quick-info {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .glass {
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+    }
+
+    .glass h2,
+    .section-title {
+      font-size: clamp(1.35rem, 3.4vw, 2.1rem);
+      line-height: 1.06;
+      margin: 0 0 12px;
+    }
+
+    .glass p,
+    .section-copy {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      font-size: 0.9rem;
+      color: #efefef;
+    }
+
+    .section {
+      padding: 22px 0;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .section-kicker {
+      color: var(--blue);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.77rem;
+    }
+
+    .highlight-grid,
+    .cards-grid,
+    .photos-grid,
+    .steps-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .highlight-grid { grid-template-columns: repeat(3, 1fr); }
+    .cards-grid { grid-template-columns: repeat(3, 1fr); }
+    .photos-grid { grid-template-columns: repeat(3, 1fr); }
+    .steps-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .card {
+      padding: 20px;
+      min-height: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+    }
+
+    .card .tag {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .tag.blue { color: var(--blue); }
+    .tag.red { color: #ff8a8a; }
+    .tag.yellow { color: #fde047; }
+    .tag.purple { color: #c4b5fd; }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.14rem;
+      line-height: 1.16;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .promise {
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(20,197,245,0.12), rgba(139,92,246,0.10) 45%, rgba(239,68,68,0.10));
+    }
+
+    .promise::after {
+      content: '';
+      position: absolute;
+      inset: auto -80px -90px auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(250,204,21,0.22), transparent 68%);
+      pointer-events: none;
+    }
+
+    .verse {
+      margin-top: 16px;
+      padding-left: 14px;
+      border-left: 3px solid var(--yellow);
+      color: #fff8cc;
+      font-weight: 600;
+    }
+
+    .photo-card {
+      position: relative;
+      min-height: 360px;
+      background: #111;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 14px 16px;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.8));
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .event-box {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .event-info,
+    .form-card {
+      padding: 24px;
+    }
+
+    .event-list,
+    .check-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .check strong { color: var(--text); }
+
+    .date-banner {
+      display: grid;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(239,68,68,0.16), rgba(20,197,245,0.14), rgba(250,204,21,0.12));
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .date-banner-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+      color: #fff;
+      opacity: 0.86;
+    }
+
+    .date-banner-value {
+      font-size: clamp(1.25rem, 2.4vw, 1.9rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #fff;
+    }
+
+    .date-banner-help {
+      color: #f3f4f6;
+      font-size: 0.94rem;
+      opacity: 0.92;
+    }
+
+    .check-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-top: 7px;
+      flex: 0 0 12px;
+      background: linear-gradient(135deg, var(--blue), var(--yellow));
+    }
+
+    .form-note {
+      margin: 10px 0 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .alert {
+      margin-top: 16px;
+      padding: 14px 15px;
+      border-radius: 16px;
+      background: rgba(250,204,21,0.09);
+      border: 1px solid rgba(250,204,21,0.18);
+      color: #fff3b3;
+      font-size: 0.94rem;
+    }
+
+    .footer {
+      padding: 30px 0 40px;
+      color: #cfcfcf;
+    }
+
+    .footer-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.92rem;
+    }
+
+    .mini-logo {
+      width: 100px;
+      opacity: 0.95;
+    }
+
+    .anchor-fix { scroll-margin-top: 88px; }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .event-box,
+      .highlight-grid,
+      .cards-grid,
+      .photos-grid,
+      .steps-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .event-box { grid-template-columns: 1fr; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-card { min-height: 460px; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner { align-items: center; }
+      .brand img { width: 40px; height: 40px; }
+      .brand-text strong { font-size: 0.9rem; }
+      .brand-text span { font-size: 0.76rem; }
+      .topbar .btn { padding: 11px 14px; font-size: 0.88rem; }
+      .hero { padding-top: 18px; }
+      .hero-card,
+      .glass,
+      .card,
+      .event-info,
+      .form-card,
+      .promise { padding: 18px; }
+      .hero-card { min-height: 430px; }
+      .hero-logo-banner { width: 100%; padding: 10px 12px; }
+      .hero-logo-banner img { max-width: 100%; }
+      .cta-row { flex-direction: column; }
+      .btn { width: 100%; }
+      .highlight-grid,
+      .cards-grid,
+      .photos-grid,
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .photo-card { min-height: 260px; }
+      .footer-box { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <img src="assets/logo.png" alt="Logo Encontro com Deus" />
+        <div class="brand-text">
+          <strong>Encontro com Deus</strong>
+          <span>Quadrangular Pilarzinho</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="#inscricao">Quero participar</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <article class="hero-card">
+          <div class="hero-logo-banner">
+            <img src="assets/logo.png" alt="Logo do Encontro com Deus" />
+          </div>
+          <div class="hero-badge">Um convite para recomeçar</div>
+          <h1>Você não chegou aqui por acaso.</h1>
+          <p>
+            Deus ainda tem um plano para a sua vida. Mesmo em meio à dor, ao cansaço,
+            à culpa ou aos vícios, existe esperança. Esse pode ser o seu verdadeiro encontro com Deus.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#inscricao">Quero participar do Encontro</a>
+            <a class="btn btn-secondary" href="#mensagens">Quero receber uma palavra</a>
+          </div>
+        </article>
+
+        <div class="quick-info">
+          <section class="glass">
+            <h2>Talvez hoje seja o dia do seu recomeço.</h2>
+            <p>
+              Se você está afastado da igreja, enfrentando lutas internas ou sentindo que precisa de ajuda,
+              esse convite é para você. O Encontro com Deus é um tempo de cura, direção e transformação.
+            </p>
+            <div class="date-banner">
+              <span class="date-banner-label">Próximo encontro</span>
+              <strong class="date-banner-value" id="event-date">Defina a data do evento</strong>
+              <span class="date-banner-help">Edite facilmente no arquivo <strong>config.js</strong>.</span>
+            </div>
+            <div class="pill-list">
+              <span class="pill">Esperança</span>
+              <span class="pill">Cura interior</span>
+              <span class="pill">Libertação</span>
+              <span class="pill">Recomeço</span>
+            </div>
+          </section>
+
+          <section class="glass promise">
+            <h2>O Encontro com Deus não é apenas um evento.</h2>
+            <p>
+              É uma experiência real com a presença de Deus. Um momento para deixar o peso para trás,
+              ouvir a voz do Senhor e viver uma mudança que começa por dentro.
+            </p>
+            <div class="verse">
+              “Vinde a mim, todos os que estais cansados e sobrecarregados, e eu vos aliviarei.”<br>
+              <small>Mateus 11:28</small>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="highlight-grid">
+          <article class="card">
+            <span class="tag red">Para quem precisa de ajuda</span>
+            <h3>Você não está sozinho</h3>
+            <p>Há um Deus que te vê, te ouve e continua te chamando de volta.</p>
+          </article>
+          <article class="card">
+            <span class="tag yellow">Para quem está cansado</span>
+            <h3>Existe descanso para a alma</h3>
+            <p>O que hoje parece pesado demais não precisa continuar assim.</p>
+          </article>
+          <article class="card">
+            <span class="tag blue">Para quem quer recomeçar</span>
+            <h3>Sua história ainda pode mudar</h3>
+            <p>O passado não precisa definir o seu futuro quando Deus entra na história.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="mensagens" class="section anchor-fix">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-kicker">Mensagens que tocam o coração</span>
+          <h2 class="section-title">Uma palavra de Deus para quem precisa de encorajamento.</h2>
+          <p class="section-copy">
+            Essas mensagens foram pensadas para alcançar pessoas feridas, cansadas ou distantes da fé,
+            conduzindo cada uma delas a dar o primeiro passo em direção a Deus.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <span class="tag blue">Mensagem 1</span>
+            <h3>Deus não desistiu de você</h3>
+            <p>Mesmo que tudo pareça perdido, o Senhor ainda conhece o seu nome e continua chamando você para perto.</p>
+          </article>
+          <article class="card">
+            <span class="tag red">Mensagem 2</span>
+            <h3>Você pode recomeçar</h3>
+            <p>Não importa o tamanho da queda. Em Deus existe perdão, graça e uma nova chance para viver diferente.</p>
+          </article>
+          <article class="card">
+            <span class="tag yellow">Mensagem 3</span>
+            <h3>Existe libertação</h3>
+            <p>Aquilo que prende sua mente, seu coração ou seus hábitos não é maior do que o poder transformador de Deus.</p>
+          </article>
+          <article class="card">
+            <span class="tag purple">Mensagem 4</span>
+            <h3>Há cura para o coração</h3>
+            <p>Feridas profundas também podem ser tratadas quando você se permite viver um encontro com a presença de Deus.</p>
+          </article>
+          <article class="card">
+            <span class="tag blue">Mensagem 5</span>
+            <h3>Você ainda tem valor</h3>
+            <p>Talvez você tenha sido rejeitado por pessoas, mas nunca deixou de ser importante para Deus.</p>
+          </article>
+          <article class="card">
+            <span class="tag red">Mensagem 6</span>
+            <h3>Hoje pode ser o seu dia</h3>
+            <p>Não adie o que pode transformar sua vida. Dê um passo de fé e permita que Deus faça algo novo em você.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-kicker">Vidas tocadas pela presença de Deus</span>
+          <h2 class="section-title">O Encontro com Deus é um ambiente de acolhimento, oração e transformação.</h2>
+        </div>
+        <div class="photos-grid">
+          <figure class="photo-card">
+            <img src="assets/hero.jpeg" alt="Momento de acolhimento no Encontro com Deus" />
+            <figcaption class="photo-caption">Deus alcança corações e traz de volta quem estava distante.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="assets/abraco.jpeg" alt="Abraço e oração no Encontro com Deus" />
+            <figcaption class="photo-caption">Um lugar de cuidado, oração e apoio espiritual.</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="assets/oracao.jpeg" alt="Pessoas em oração durante o Encontro com Deus" />
+            <figcaption class="photo-caption">Um tempo para ouvir Deus, se render e recomeçar.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap event-box">
+        <article class="card event-info">
+          <span class="section-kicker">Sobre o Encontro</span>
+          <h2 class="section-title">Um final de semana separado para um verdadeiro encontro com Deus.</h2>
+          <p class="section-copy">
+            O Encontro com Deus foi preparado para receber pessoas que precisam de direção, restauração e um novo começo.
+            É um tempo para se desligar da rotina, abrir o coração e permitir que Deus fale de forma profunda.
+          </p>
+          <div class="check-list">
+            <div class="check"><span class="check-dot"></span><div><strong>Ambiente acolhedor:</strong> cuidado, oração e acompanhamento espiritual.</div></div>
+            <div class="check"><span class="check-dot"></span><div><strong>Mensagem clara:</strong> esperança para quem está cansado, ferido ou afastado.</div></div>
+            <div class="check"><span class="check-dot"></span><div><strong>Decisão prática:</strong> inscrição rápida para dar seu primeiro passo.</div></div>
+          </div>
+        </article>
+
+        <aside id="inscricao" class="form-card anchor-fix">
+          <span class="section-kicker">Inscrição</span>
+          <h2 class="section-title">Dê o primeiro passo.</h2>
+          <p class="section-copy">
+            Preencha sua inscrição no Google Forms e nossa equipe fará o contato com você.
+          </p>
+
+          <div class="steps-grid" style="margin-top:18px;">
+            <article class="card" style="padding:16px;">
+              <span class="tag blue">Passo 1</span>
+              <h3 style="font-size:1rem;">Clique no botão</h3>
+              <p>Abra o formulário de inscrição.</p>
+            </article>
+            <article class="card" style="padding:16px;">
+              <span class="tag yellow">Passo 2</span>
+              <h3 style="font-size:1rem;">Preencha seus dados</h3>
+              <p>Nome, telefone e região.</p>
+            </article>
+            <article class="card" style="padding:16px;">
+              <span class="tag red">Passo 3</span>
+              <h3 style="font-size:1rem;">Aguarde nosso contato</h3>
+              <p>Nossa equipe orientará os próximos passos.</p>
+            </article>
+          </div>
+
+          <div class="cta-row" style="margin-top:18px;">
+            <a id="formButton" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">Abrir formulário de inscrição</a>
+          </div>
+
+          <p class="form-note">Compatível com celular. O formulário abre em uma nova aba.</p>
+
+          <div id="formAlert" class="alert">
+            Para deixar a inscrição funcionando 100%, substitua o link do Google Forms no arquivo <strong>config.js</strong>.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="card promise">
+          <h2 class="section-title">Você sente que precisa de um recomeço?</h2>
+          <p class="section-copy" style="max-width: 60ch; color:#f0f0f0;">
+            Então não ignore esse momento. Deus pode transformar a sua história. Clique abaixo, faça sua inscrição e permita-se viver um verdadeiro encontro com Ele.
+          </p>
+          <div class="cta-row" style="margin-top:20px;">
+            <a class="btn btn-primary" href="#inscricao">Quero me inscrever agora</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-box">
+      <div>
+        <strong>Encontro com Deus</strong><br>
+        Quadrangular Pilarzinho
+      </div>
+      <img class="mini-logo" src="assets/logo.png" alt="Logo Encontro com Deus" />
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script>
+    (function () {
+      const btn = document.getElementById('formButton');
+      const alertBox = document.getElementById('formAlert');
+      const hasConfig = typeof window.ENCONTRO_CONFIG === 'object' && !!window.ENCONTRO_CONFIG.googleFormsUrl;
+
+      if (hasConfig) {
+        btn.href = window.ENCONTRO_CONFIG.googleFormsUrl;
+        alertBox.style.display = 'none';
+      } else {
+        btn.href = '#';
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          alert('Falta inserir o link do Google Forms em config.js para ativar a inscrição.');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
