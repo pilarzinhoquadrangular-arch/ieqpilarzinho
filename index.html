@@ -755,24 +755,30 @@
     </div>
   </footer>
 
-  <script src="config.js"></script>
-  <script>
-    (function () {
-      const btn = document.getElementById('formButton');
-      const alertBox = document.getElementById('formAlert');
-      const hasConfig = typeof window.ENCONTRO_CONFIG === 'object' && !!window.ENCONTRO_CONFIG.googleFormsUrl;
+ <script src="config.js"></script>
+<script>
+  (function () {
+    const btn = document.getElementById('formButton');
+    const alertBox = document.getElementById('formAlert');
+    const eventDateEl = document.getElementById('event-date');
 
-      if (hasConfig) {
-        btn.href = window.ENCONTRO_CONFIG.googleFormsUrl;
-        alertBox.style.display = 'none';
-      } else {
-        btn.href = '#';
-        btn.addEventListener('click', function (e) {
-          e.preventDefault();
-          alert('Falta inserir o link do Google Forms em config.js para ativar a inscrição.');
-        });
-      }
-    })();
-  </script>
-</body>
-</html>
+    const config = window.ENCONTRO_CONFIG || {};
+    const hasFormUrl = !!config.googleFormsUrl;
+    const hasEventDate = !!config.eventDate;
+
+    if (hasFormUrl) {
+      btn.href = config.googleFormsUrl;
+      alertBox.style.display = 'none';
+    } else {
+      btn.href = '#';
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        alert('Falta inserir o link do Google Forms em config.js para ativar a inscrição.');
+      });
+    }
+
+    if (hasEventDate) {
+      eventDateEl.textContent = config.eventDate;
+    }
+  })();
+</script>
